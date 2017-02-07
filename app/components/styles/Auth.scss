@@ -1,0 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+$bg-c1: #1C6663;
+$bg-c2: #053D48;
+
+body {
+  font-family: 'Roboto';
+  margin: 0;
+  padding: 0;
+}
+
+.auth-container {
+  background-color: $bg-c2;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+}

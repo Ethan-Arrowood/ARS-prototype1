@@ -1,0 +1,12 @@
+input {
+  &.notSame {
+    outline-color: red;
+  }
+  &.same {
+    outline-color: green;
+  }
+}
+
+div.error {
+  color: red;
+}

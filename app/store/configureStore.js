@@ -9,7 +9,7 @@ export const configure = (initialState = {}) => {
 
   const store = redux.createStore(reducer, initialState, redux.compose(
     redux.applyMiddleware(thunk),
-    window.devToolsExtension ? windowx.devToolsExtension() : f => f
+    window.devToolsExtension ? window.devToolsExtension() : f => f
   ));
 
   return store;

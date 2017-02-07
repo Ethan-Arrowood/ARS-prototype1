@@ -30,6 +30,7 @@ module.exports = {
       "app/components"
     ],
     alias: {
+      app: path.resolve(__dirname, 'app/'),
       actions: path.resolve(__dirname, 'app/actions/actions.js'),
       reducers: path.resolve(__dirname,'app/reducers/reducers.js'),
       configureStore: path.resolve(__dirname, 'app/store/configureStore.js')
@@ -68,5 +69,10 @@ module.exports = {
   ],
   externals: {
     bodymovin: 'bodymovin'
+  },
+  node: {
+    net: 'empty',
+    tls: 'empty',
+    dns: 'empty'
   }
 };

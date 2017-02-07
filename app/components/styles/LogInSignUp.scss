@@ -2,126 +2,69 @@
 $br-c1: #1C6663;
 $br-c2: #053D48;
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto';
-}
-
-.outer-container {
-  background-color: $br-c2;
-  width: 100vw;
-  height: 100vh;
+.container {
+  background-color: $br-c1;
+  width: 600px;
+  height: 320px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
-  .container {
-    background-color: $br-c1;
-    width: 600px;
-    height: 320px;
+  .form-container {
+    margin-left: 25px;
+    background-color: white;
+    height: 380px;
+    width: 305px;
+    align-self: center;
     display: flex;
-
-    .form-container {
-      margin-left: 25px;
-      background-color: white;
-      height: 380px;
-      width: 305px;
-      align-self: center;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      flex-direction: column;
-      position: absolute;
-      z-index: 1;
-      transition: margin-left 1.5s;
-      &.active {
-        margin-left: 275px;
-      }
-
-      h2 {
-        margin: 0;
-        font-size: 1.5rem;
-        color: $br-c1;
-      }
-
-      .fire {
-        height: 100px;
-        width: 100px;
-        z-index: 0;
-      }
-
-      .form-item {
-        form {
-          z-index: 2;
-          position: relative;
-
-          &.form-sign-up {
-            margin-top: 30px;
-            display: none;
-          }
-
-          input {
-            display: block;
-            padding: 10px;
-            width: 250px;
-            margin: 5px 5px 10px 5px;
-          }
-
-          .btn {
-            cursor: pointer;
-            display: block;
-            padding: 10px;
-            width: 250px;
-            margin: 5px;
-            text-align: center;
-            border: 2px solid $br-c1;
-            background-color: $br-c1;
-            color: white;
-            opacity: 1;
-            &:hover {
-              opacity: 0.7;
-            }
-          }
-        }
-      }
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    transition: margin-left 1.5s;
+    &.active {
+      margin-left: 275px;
     }
 
-    .info-container {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-around;
-      position: relative;
-      .info-item {
-        color: white;
-        display: flex;
-        align-content: center;
-        align-items: center;
-        flex-direction: column;
-        font-weight: 500;
-        font-size: 20px;
-        position: relative;
-        z-index: 1;
-        text-align: center;
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: $br-c1;
+    }
 
-        &.log-in {
-          margin-right: 40px;
+    .fire {
+      height: 100px;
+      width: 100px;
+      z-index: 0;
+    }
+
+    .form-item {
+      form {
+        z-index: 2;
+        position: relative;
+
+        &.form-sign-up {
+          margin-top: 30px;
+          display: none;
         }
 
-        &.sign-up {
-          margin-left: 40px;
+        input {
+          display: block;
+          padding: 10px;
+          width: 250px;
+          margin: 5px 5px 10px 5px;
         }
 
         .btn {
           cursor: pointer;
-          background-color: transparent;
-          width: 60px;
-          padding: 10px 15px;
-          border: 1px solid white;
-          font-size: 16px;
+          display: block;
+          padding: 10px;
+          width: 250px;
+          margin: 5px;
+          text-align: center;
+          border: 2px solid $br-c1;
+          background-color: $br-c1;
+          color: white;
+          box-sizing: content-box;
           opacity: 1;
           &:hover {
             opacity: 0.7;
@@ -130,7 +73,50 @@ body {
       }
     }
   }
+
+  .info-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    .info-item {
+      color: white;
+      display: flex;
+      align-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-weight: 500;
+      font-size: 20px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+
+      &.log-in {
+        margin-right: 40px;
+      }
+
+      &.sign-up {
+        margin-left: 40px;
+      }
+
+      .btn {
+        cursor: pointer;
+        background-color: transparent;
+        width: 60px;
+        padding: 10px 15px;
+        border: 1px solid white;
+        font-size: 16px;
+        opacity: 1;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
 }
+
 
 .tree {
   height: auto;
@@ -185,5 +171,4 @@ body {
     position: absolute;
     bottom: 0px;
   }
-
 }
