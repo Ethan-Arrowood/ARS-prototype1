@@ -1,41 +1,34 @@
 import firebase, {firebaseRef} from 'app/firebase/';
 
-
-export var startSignUp = (userEmail, userPassword) => {
+export const signUp = (email, password) => {
   return (dispatch, getState) => {
-    return firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).then((result) => {
+    return firebase.auth().createUserWithEmailAndPassword(email, password).then((result) => {
       const user = firebase.auth().currentUser;
+
       user.sendEmailVerification().then(() => {
         console.log('Verification email sent.');
-        dispatch(signedup(true));
       }, () => {
         console.log('Verification email failed.');
-        dispatch(signedup(false));
       });
       console.log('Auth worked!', result);
     }, (error) => {
       console.log('Unable to authenticate', error);
     });
-  };
-};
-export var signedup = (veriSuccesful) => {
-  return {
-    type: 'SIGNEDUP',
-    veriSuccesful
   }
 }
-export var login = (email) => {
+
+export var login = (uid) => {
   return {
     type: 'LOGIN',
-    email
+    uid
   };
 };
 
 export var startLogin = (userEmail, userPassword) => {
   return (dispatch, getState) => {
     return firebase.auth().signInWithEmailAndPassword(userEmail, userPassword).then((result) => {
+      
       console.log('Auth worked!', result);
-      dispatch(actions.login(email));
     }, (error) => {
       console.log('Unable to auth', error);
     });

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as Redux from 'react-redux';
 import $ from 'jquery';
 
 // import animations and styles
@@ -11,7 +12,7 @@ import LogIn from './LogIn.js';
 import SignUp from './SignUp.js';
 
 class LogInSignUp extends Component {
-  
+
   componentDidMount() {
     //render animation
     bodymovin.loadAnimation({
@@ -71,4 +72,4 @@ class LogInSignUp extends Component {
   }
 }
 
-export default LogInSignUp;
+export default Redux.connect()(LogInSignUp);

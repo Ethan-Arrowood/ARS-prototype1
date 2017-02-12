@@ -8,6 +8,7 @@ require('../styles/SignUp.scss');
 class SignUp extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       username: '',
       password: '',
@@ -31,7 +32,8 @@ class SignUp extends Component {
     event.preventDefault();
 
     const { email, password, cpassword } = this.state;
-
+    const { dispatch } = this.props;
+    
     if ( email !== undefined && password !== undefined && cpassword !== undefined ) {
      const emailRegex = /[a-zA-Z0-9!#$%&'*+-\/=?^_`{|}~.]+[@][a-z]+[.][a-z]+/;
      const passwordRegex = /[a-zA-Z0-9!#$%&'*+-\/=?^_`{|}~.@]{6,}/;
@@ -42,9 +44,9 @@ class SignUp extends Component {
      if ( isEmailValid && isPasswordValid ) {
 
        console.log(`dispatch(actions.signUp(${email}, ${password}));`)
-       //dispatch(actions.signUp(email, password));
+       dispatch(actions.signUp(email, password));
 
-       $("[name=email]").val('');
+       $("[name=email], [name=password], [name=cpassword]").val('');
      } else {
        $("#error").html("<p>User Error</p>");
      }
@@ -83,7 +85,7 @@ class SignUp extends Component {
           onChange={this.handleChange}
         />
 
-      <input name="signup" className="btn" type="submit" value="SignUp" />
+        <input name="signup" className="btn" type="submit" value="SignUp" />
 
         <div className="error" id="error"></div>
       </form>

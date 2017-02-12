@@ -7,9 +7,10 @@ require('../styles/LogInSignUp.scss');
 class LogIn extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      username: '',
-      password: '',
+      login_email: '',
+      login_password: '',
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,12 +23,12 @@ class LogIn extends Component {
     this.setState({[name]: value});
   }
   handleSubmit(event) {
-    e.preventDefault();
+    event.preventDefault();
 
     const {dispatch} = this.props;
-    const userEmail = this.state.email;
-    const userPassword = this.state.password;
-
+    const userEmail = this.state.login_email;
+    const userPassword = this.state.login_password;
+    console.log(`dispatch(actions.startLogin(${userEmail}, ${userPassword}));`)
     dispatch(actions.startLogin(userEmail, userPassword));
   }
   render() {
@@ -35,13 +36,13 @@ class LogIn extends Component {
     return (
       <form className="form-log-in animated" onSubmit={this.handleSubmit}>
         <input
-          name="Email" placeholder="Email" type="text"
-          value={this.state.email}
+          name="login_email" placeholder="Email" type="text"
+          value={this.state.login_email}
           onChange={this.handleChange}
         />
         <input
-          name="Password" placeholder="Password" type="password"
-          value={this.state.password}
+          name="login_password" placeholder="Password" type="password"
+          value={this.state.login_password}
           onChange={this.handleChange}
         />
       <input className="btn" type="submit" value="Log In"/>

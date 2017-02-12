@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as Redux from 'react-redux';
 import firebase from 'firebase';
-
 // import components
 import VerifyAccount from 'auth/VerifyAccount';
 import LogInSignUp from 'auth/LogInSignUp';
@@ -10,29 +9,14 @@ import LogInSignUp from 'auth/LogInSignUp';
 require('styles/Auth.scss');
 
 class Auth extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  renderAuthComponent() {
-    return firebase.user ? <VerifyAccount/> : <LogInSignUp/>;
-  }
-
-  componentDidMount() {
-    console.log(this.props);
-  }
 
   render() {
     return (
       <div className="auth-container">
-        {this.renderAuthComponent()}
+        {this.props.children}
       </div>
     );
   }
 };
 
-export default Redux.connect(
-  (state) => {
-    return state
-  }
-)(Auth);
+export default Redux.connect()(Auth);
